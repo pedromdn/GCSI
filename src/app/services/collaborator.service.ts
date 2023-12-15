@@ -22,18 +22,14 @@ export class CollaboratorService {
   }
 
   createCollaborator(collaborator: ICollaborator | FormData): Observable<any> {
-    console.log(collaborator);
     return this.http.post<any>(`${this.apiUrl}/employees`, collaborator);
   }
 
   deleteCollaborator(id: number): Observable<any> {
-    console.log('id:',id);
     return this.http.delete<any>(`${this.apiUrl}/employees/${id}`);
   }
 
-  updateCollaborator(id: number, collaborator: ICollaborator | FormData): Observable<any> {
-    console.log(collaborator);
-    
+  updateCollaborator(id: number, collaborator: ICollaborator | FormData): Observable<any> {    
     return this.http.post<any>(`${this.apiUrl}/employees/${id}`, collaborator);
   }
 }
