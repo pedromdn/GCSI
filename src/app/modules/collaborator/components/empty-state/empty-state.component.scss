@@ -1,0 +1,55 @@
+
+
+.empty_state {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  & > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 8px;
+    & > div{
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      & > p:first-child {
+        font-weight: 800;
+        font-size: 13px;;
+        color: #666677;
+    
+      }
+      & > p {
+        font-size: 13px;;
+        font-weight: 400;
+        color: #666677;
+    
+      }
+
+    }
+    
+
+  }
+  &__icon {
+    background-color: #EEEEEE;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 46px;
+    width: 46px;
+    border-radius: 50%;
+    & > img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    & > i {
+      color: #666677;
+      font-size: 20px;
+    }
+  }
+  
+}

@@ -1,4 +1,14 @@
+
+
 {
+  "angularCompilerOptions": {
+    "fullTemplateTypeCheck": true,
+    "strictInjectionParameters": true
+  },
+  "compilerOptions": {
+    "allowJs": true
+  },
+  
   "compileOnSave": false,
   "compilerOptions": {
     "baseUrl": "./",
@@ -21,6 +31,8 @@
   },
   "angularCompilerOptions": {
     "fullTemplateTypeCheck": true,
-    "strictInjectionParameters": true
+    "strictInjectionParameters": true,
+    "enableIvy": false,
+
   }
 }

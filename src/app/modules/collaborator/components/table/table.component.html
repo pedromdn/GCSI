@@ -1,0 +1,58 @@
+<div class="container mt-4">
+<div class="card">
+  <div class="card-body">
+    <span class="h2">Colaboradores</span>
+    <div class="table-responsive mt-2">
+      <table class="table table-hover">
+        <thead class="sticky-top bg-light align-middle">
+          <tr>
+            <th>Nombre</th>
+            <th>Primer Apellido</th>
+            <th>Segundo Apellido</th>
+            <th>Empresa</th>
+            <th>Área</th>
+            <th>Departamento</th>
+            <th>Puesto</th>
+            <th>Fecha de Alta</th>
+            <th>Estatus</th>
+            <th>
+              <button type="button" class="btn btn-primary" routerLink="/create">
+                <!-- <span>Crear</span> -->
+                Crear
+                <i class="bi bi-plus-square"></i>
+              </button>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr  *ngFor="let collaborator of collaborators">
+            <td class="py-3">{{ collaborator.name }}</td>
+            <td class="py-3">{{ collaborator.last_name1 }}</td>
+            <td class="py-3">{{ collaborator.last_name2 }}</td>
+            <td class="py-3">{{ collaborator.company }}</td>
+            <td class="py-3">{{ collaborator.area }}</td>
+            <td class="py-3">{{ collaborator.department }}</td>
+            <td class="py-3">{{ collaborator.position }}</td>
+            <td class="py-3">{{ collaborator.startDate }}</td>
+            <td class="py-3">{{ collaborator.status == 1 ? 'Activo' : 'Inactivo' }}</td>
+            <td class="py-3">
+              <div>
+                <button class="btn btn-primary mx-1" title="Edit User" [routerLink]="['/edit', collaborator.id]">                  <i class="bi bi-pencil"></i>
+                </button>
+  
+                <button class="btn btn-danger mx-1" title="Delete User" (click)="deleteCollaborator(collaborator.id)">
+                  <i class="bi bi-trash"></i>
+                </button>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <app-empty-state *ngIf="!collaborators.length"></app-empty-state>
+    </div>
+
+  </div>
+
+</div>
+  
+</div>

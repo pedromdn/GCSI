@@ -1,0 +1,16 @@
+
+  <ng-container>
+    <div class="empty_state" [ngStyle]="setStyles()">
+      <div>
+        <div class="empty_state__icon" *ngIf="icon != null && image != null">
+          <i [class]="icon != null ? icon : ''" *ngIf="!image"></i>
+          <img [src]="image" alt="" *ngIf="image" />
+        </div>
+        <div>
+          <p>{{ title? title:'' }}</p>
+          <p>{{ message? message:'' }}</p>
+        </div>
+        
+      </div>
+    </div>
+  </ng-container>

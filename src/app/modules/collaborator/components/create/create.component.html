@@ -1,0 +1,77 @@
+<div class="container mt-4">
+  <div class="py-2">
+    <button type="button" class="btn btn-primary" routerLink="/table">
+      <i class="bi bi-caret-left-fill"></i>
+      Regresar
+    </button>
+  </div>
+  
+  <div class="card">
+    <div>
+      <span class="h2">Crear Colaboradores</span>
+    </div>
+    <div class="card-body">
+      <form [formGroup]="form" (ngSubmit)="submitForm()">
+        <div class="row py-2">
+          <div *ngIf="!collaborator.photo" class="upload_container">
+            <div class="upload">
+              <i class="bi bi-plus-circle"></i>
+              <input type="file" accept="image/*" formControlName="photo" (change)="setImage($event)" />
+            </div>
+          </div>
+          <div *ngIf="collaborator.photo" class="image_container">
+            <img  [src]="collaborator.photo" alt="Photo">
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6">
+            <div class="py-2">
+              <label for="nombre" class="form-label">Nombre</label>
+              <input type="text" class="form-control" formControlName="name" placeholder="Nombre del empleado">
+            </div>
+            <div class="py-2">
+              <label for="apellido2" class="form-label">Segundo Apellido</label>
+              <input type="text" class="form-control" formControlName="last_name2" placeholder="Segundo Apellido del empleado">
+            </div>
+            <div class="py-2">
+              <label for="area" class="form-label">Área</label>
+              <input type="text" class="form-control" formControlName="area" placeholder="Área del empleado">
+            </div>
+            <div class="py-2">
+              <label for="puesto" class="form-label">Puesto</label>
+              <input type="text" class="form-control" formControlName="position" placeholder="Puesto del empleado">
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="py-2">
+              <label for="apellido1" class="form-label">Primer Apellido</label>
+              <input type="text" class="form-control" formControlName="last_name1" placeholder="Primer Apellido del empleado">
+            </div>
+            <div class="py-2">
+              <label for="empresa" class="form-label">Empresa</label>
+              <input type="text" class="form-control" formControlName="company" placeholder="Nombre de la empresa">
+            </div>
+            <div class="py-2">
+              <label for="departamento" class="form-label">Departamento</label>
+              <input type="text" class="form-control" formControlName="department" placeholder="Departamento del empleado">
+            </div>
+            <div class="py-2">
+              <label for="estatus" class="form-label">Estatus</label>
+              <select class="form-select" formControlName="status">
+                <option *ngFor="let option of statusOptions" [value]="option.id">{{ option.name }}</option>
+              </select>
+            </div>
+            
+          </div>
+        </div>
+
+        <div class="py-2">
+          <button [disabled]="form.invalid" type="submit" class="btn btn-primary">Guardar</button>
+        </div>
+
+      </form>
+    </div>
+  </div>
+</div>
