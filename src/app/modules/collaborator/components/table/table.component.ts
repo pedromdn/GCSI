@@ -3,7 +3,6 @@ import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { ICollaborator } from 'src/app/interfaces/user.interface';
 import { CollaboratorService } from 'src/app/services/collaborator.service';
-import { SocketService } from 'src/app/services/socket.service';
 
 @Component({
   selector: 'app-table',
@@ -17,22 +16,15 @@ export class TableComponent implements OnInit {
   constructor(private collaborator_service: CollaboratorService,
     private router: Router,
     private toastr: ToastrService,
-    private socketService: SocketService
-
     ) { }
 
   ngOnInit() {
     this.getCollaborators();
-    this.socketService.listen('updateCollaborators').subscribe(() => {
-      this.getCollaborators();
-    });
   }
 
   getCollaborators(): void {
     this.collaborator_service.getCollaborators().subscribe({
-      next: (res: any) => {
-        console.log(res);
-        
+      next: (res: any) => {        
         this.collaborators = res.employee;
       },
       error: (err) => {
@@ -64,6 +56,5 @@ export class TableComponent implements OnInit {
   updateCollaborator(id: number): void {
     this.router.navigate(['/create', id]);
   }
-  
 
 }
